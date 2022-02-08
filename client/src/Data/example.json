@@ -1,0 +1,71 @@
+{
+	"2022": [
+		{
+			"month": "01",
+			"change": -5.27,
+            "earnings": false
+		}
+	],
+    "2021": [
+		{
+			"month": "01",
+			"change": -1.02,
+            "earnings": false
+		},
+		{
+			"month": "02",
+			"change": 2.78,
+            "earnings": false
+		},
+		{
+			"time": "03",
+			"change": 4.20,
+            "earnings": true
+		},
+        {
+			"month": "04",
+			"change": 5.29,
+            "earnings": false
+		},
+		{
+			"month": "05",
+			"change": 0.66,
+            "earnings": false
+		},
+		{
+			"month": "06",
+			"change": 1.91,
+            "earnings": true
+		},
+        {
+			"month": "07",
+			"change": 2.44,
+            "earnings": false
+		},
+		{
+			"month": "08",
+			"change": 2.98,
+            "earnings": false
+		},
+		{
+			"time": "09",
+			"change": -4.97,
+            "earnings": true
+		},
+        {
+			"month": "10",
+			"change": 7.02,
+            "earnings": false
+		},
+		{
+			"month": "11",
+			"change": -0.80,
+            "earnings": false
+		},
+		{
+			"time": "12",
+			"change": 4.26,
+            "earnings": true
+		}
+	]
+}
