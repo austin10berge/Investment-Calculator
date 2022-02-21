@@ -4,7 +4,7 @@ import Chart from './chart.js'
 const data = require('../Data/example.json');
 
 let startMonth = "01";
-let startYear = "2019";
+let startYear = "2020";
 let initialInvestment = 200; // DCA amount
 let portfolio = [];            // Each monthly investment after the month closes
 let portfolioTotal = 0;        // Total 
@@ -15,7 +15,7 @@ let multiplier = 2;            // have to use multiplier param if over two years
 export default function Calculate() {
 
     //localCalc(); 
-    apiCalc(startMonth);
+    localCalc(startMonth);
     //console.log("TT: " + totalTracker);
 
     // Chart(portfolio, portfolioTotal, totalTracker, startMonth, startYear);
@@ -28,26 +28,28 @@ export default function Calculate() {
 function localCalc() { // perform calculations using personally created database
     for (let i = parseInt(startMonth); i <= 12; i++) {
         let getRate = (data["2021"][i-1]["change"]);
-        let rate;
-        if (getRate > 0) {
-            rate = (getRate/100) + 1;
-            //console.log(rate + " positive");
-        } else {
-            rate = 
-            rate = (1 - (Math.abs(getRate)/100));
-            //console.log(rate + " negative");
-        }
+        let rate = getRate / 100;
+        let investmentChange;
+        portfolioTotal += initialInvestment;
+        investmentChange = rate * portfolioTotal;
+        // if (getRate > 0) {
+        //     investmentChange = rate * portfolioTotal;
+        //     //console.log(rate + " positive");
+        // } else {
+        //     investmentChange = rate * portfolioTotal;
+        //     //console.log(rate + " negative");
+        // }
 
-        //console.log("Rate: " + rate);
-        let investmentChange = rate * initialInvestment; // Monthly investment after month closes
+        console.log("Rate: " + getRate);
+        investmentChange = rate * portfolioTotal; // Monthly investment after month closes
         
         portfolioTotal += investmentChange;
+        console.log("Total: " + portfolioTotal);
         totalTracker.push(portfolioTotal);
         portfolio.push(investmentChange);
-
-        Chart(portfolio, portfolioTotal, totalTracker, startMonth, startYear);
         
     }
+    Chart(portfolio, portfolioTotal, totalTracker, startMonth, startYear);
 }
 
 function apiCalc(startMonth) {
@@ -63,14 +65,15 @@ function apiCalc(startMonth) {
                 initialInvestment *= 2;  
             for (let i = parseInt(startMonth); i <= 12; i++) {
                 let rate = apiData[k].c / apiData[k].o;
+                portfolioTotal += initialInvestment;
                 //console.log("Rate: " + rate);
                 if (multiplier > 1) {      // To calculate 2 months in one bar
                     i = i + multiplier - 1;
                 }
         
-                let investmentChange = rate * initialInvestment; // Monthly investment after month closes
-        
+                let investmentChange = rate * portfolioTotal; // Monthly investment after month closes
                 portfolioTotal += investmentChange;
+                console.log("Rate: " + rate);
                 totalTracker.push(portfolioTotal);
                 portfolio.push(investmentChange);
 

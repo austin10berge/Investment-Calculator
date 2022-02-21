@@ -67,5 +67,67 @@
 			"change": 4.26,
             "earnings": true
 		}
+	], 
+	"2020": [ 
+		{
+			"month": "finish 2020",
+			"change": 1,
+            "earnings": false
+		},
+		{
+			"month": "02",
+			"change": 1,
+            "earnings": false
+		},
+		{
+			"time": "03",
+			"change": 1,
+            "earnings": true
+		},
+        {
+			"month": "04",
+			"change": 1,
+            "earnings": false
+		},
+		{
+			"month": "05",
+			"change": 0.66,
+            "earnings": false
+		},
+		{
+			"month": "06",
+			"change": 1.91,
+            "earnings": true
+		},
+        {
+			"month": "07",
+			"change": 2.44,
+            "earnings": false
+		},
+		{
+			"month": "08",
+			"change": 2.98,
+            "earnings": false
+		},
+		{
+			"time": "09",
+			"change": -4.97,
+            "earnings": true
+		},
+        {
+			"month": "10",
+			"change": 7.02,
+            "earnings": false
+		},
+		{
+			"month": "11",
+			"change": -0.80,
+            "earnings": false
+		},
+		{
+			"time": "12",
+			"change": 4.26,
+            "earnings": true
+		}
 	]
 }
