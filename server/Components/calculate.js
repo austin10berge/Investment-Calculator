@@ -1,7 +1,10 @@
 import React from 'react'
 import Chart from './chart.js'
 
-const data = require('../Data/example.json');
+const data = require('../../client/src/Data/example.json');
+const apiData = require('../server.js');
+// const apiData = require('data').config({path:'../../../server/server.js'});
+//require('dotenv').config({path:'../../.env'});
 
 let startMonth = "01";
 let startYear = "2020";

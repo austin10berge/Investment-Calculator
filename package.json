@@ -11,6 +11,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "express": "^4.17.3",
     "lightweight-charts": "^3.7.0",

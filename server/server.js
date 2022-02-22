@@ -11,6 +11,8 @@ app.get('/express_backend', (req, res) => { //Line 9
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); //Line 10
 }); //Line 11
 
+app.use(express.static('public'));
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri = "mongodb+srv://investment:investment@cluster0.tcbe8.mongodb.net/Historical_Stock_Data?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -51,11 +53,13 @@ app.get('/',(request, response) => {
       const col = db.collection("SPY");
       //console.log(col);
 
-      const query = { "year": "2020" };
+      const query = { "year": "2022" };
       const cursor = col.find(query);
-      await cursor.forEach(console.dir);  
-      var log = JSON.parse(cursor);
-      console.log(log);
+      //await cursor.forEach(console.dir);  
+      
+      await cursor.forEach(doc => console.log(doc.data));
+
+      
 
       } catch (err) {
         console.log(err.stack);
